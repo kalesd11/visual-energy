@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  background-color: #c1c2e2;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -32,7 +33,80 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.neuo{
+  /* min-width: 50%; */
+  border-radius: 30px;
+  /* box-sizing: border-box; */
+  margin: 8px;
+  padding: 8px;
+  background-color: #c1c2e2;
+  box-shadow:  20px 20px 60px #fff,
+               -20px -20px 60px #dedfff;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  --R: 30px;
+  --g1: #514b82 96%, #0000;
+  --g2: #eeeeee 96%, #0000;
+  width: calc(2*var(--R));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  -webkit-mask: linear-gradient(#000 0 0);
+  animation: l30 2s infinite linear;
+}
+.loader::before,
+.loader::after{
+  content:"";
+  grid-area: 1/1;
+  width: 50%;
+  background:
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(var(--R) + 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) 0 calc(-1*var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(var(--R) - 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),
+    radial-gradient(farthest-side,var(--g2)) calc(-1*var(--R))  0,
+    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) + 0.5*var(--R)   - var(--R));
+   background-size: calc(2*var(--R)) calc(2*var(--R));
+   background-repeat :no-repeat;
+}
+.loader::after {
+ transform: rotate(180deg);
+ transform-origin: right;
+}
+
+@keyframes l30 {
+  100% {transform: rotate(-1turn)}
+}
+
+.loader-container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* .grid{
+  display: grid;
+  grid-template-columns:  100px,100px,100px;
+} */
+/* .active{
+  background-color: #c1c2e2;
+} */
+.card{
+  background-color: #c1c2e2;
+  box-shadow:  20px 20px 60px #fff,
+               -20px -20px 60px #dedfff;
+}
+
+input{
+  background-color: #c1c2e2;
 }
